@@ -6,9 +6,9 @@ function calculate() {
     document.getElementById("pellet_area").value = pellet_area;
 
     var sample_absorption_length_um = parseFloat(document.getElementById("sample_absorption_length_um").value);
-    var desired_absorption_lengths = parseFloat(document.getElementById("desired_absorption_lengths").value);
+    var sample_absorption_lengths = parseFloat(document.getElementById("sample_absorption_lengths").value);
     const um_to_mm = 1000.0;
-    var sample_volume = desired_absorption_lengths * (sample_absorption_length_um/um_to_mm) * pellet_area;
+    var sample_volume = sample_absorption_lengths * (sample_absorption_length_um/um_to_mm) * pellet_area;
     document.getElementById("sample_volume").value = sample_volume;
 
     var sample_thick_mm = sample_volume / pellet_area;
@@ -90,7 +90,7 @@ window.onload = function() {
     var input_ids = new Array();
     input_ids.push("pellet_diameter_mm");
     input_ids.push("sample_absorption_length_um");
-    input_ids.push("desired_absorption_lengths");
+    input_ids.push("sample_absorption_lengths");
     input_ids.push("sample_density");
     input_ids.push("binder_absorption_length_um");
     input_ids.push("binder_density");
