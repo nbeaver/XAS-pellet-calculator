@@ -7,8 +7,8 @@ function calculate() {
 
     var sample_absorption_length_um = parseFloat(document.getElementById("sample_absorption_length_um").value);
     var sample_absorption_lengths = parseFloat(document.getElementById("sample_absorption_lengths").value);
-    const um_to_mm = 1000.0;
-    var sample_volume = sample_absorption_lengths * (sample_absorption_length_um/um_to_mm) * pellet_area;
+    const um_to_mm = 1.0/1000.0;
+    var sample_volume = sample_absorption_lengths * (sample_absorption_length_um*um_to_mm) * pellet_area;
     document.getElementById("sample_volume").value = sample_volume;
 
     var sample_thick_mm = sample_volume / pellet_area;
