@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>XAS pellet calculator.</title>
+        <script type="text/javascript" src="calculator.js"></script>
+    </head>
+    <body>
+        Filename: <input type="text" id="csv_filename" value="pellet_calculation.csv">
+        <table id="calculator_table" >
+            <tr>
+                <td>Name</td>
+                <td>Units</td>
+                <td>Value</td>
+            </tr>
+            <tr>
+                <td>Pellet diameter</td>
+                <td>mm</td>
+                <td><input id="pellet_diameter_mm" type="number" min="0" step="0.1" value="8"></td>
+            </tr>
+            <tr>
+                <td>Pellet area</td>
+		<td>mm<sup>2</sup></td>
+                <td><output id="pellet_area" for="pellet_diameter_mm"></td>
+            </tr>
+            <tr>
+                <td>Sample label</td>
+                <td></td>
+                <td><input id="label_sample" type="text" value="PbTiO3 at Pb L3 edge"></td>
+            </tr>
+            <tr>
+                <td>Sample x-ray absorption length</td>
+                <td>micron</td>
+                <td><input id="sample_absorption_length_um" type="number" min="0" step="0.1" value="11.1"></td>
+            </tr>
+            <tr>
+                <td>Desired sample absorption lengths</td>
+                <td></td>
+                <td><input id="desired_absorption_lengths" type="number" min="0" step="0.1" value="1"></td>
+            </tr>
+            <tr>
+                <td>Sample density</td>
+                <td>g/mL</td>
+                <td><input id="rho_sample" type="number" min="0" step="0.01" value="7.52"></td>
+            </tr>
+            <tr>
+                <td>Sample volume</td>
+		<td>mm<sup>3</sup></td>
+                <td><output id="vol_sample" for="pellet_diameter_mm sample_absorption_length_um desired_absorption_lengths" ></td>
+            </tr>
+            <tr>
+                <td>Sample thickness</td>
+		<td>mm</sup></td>
+                <td><output id="sample_thick_mm" for="vol_sample pellet_area" ></td>
+            </tr>
+            <tr>
+                <td>Binder label</td>
+                <td></td>
+                <td><input id="label_binder" type="text" value="PVDF"></td>
+            </tr>
+            <tr>
+                <td>Binder x-ray absorption length</td>
+                <td>micron</td>
+                <td><input id="binder_absorption_length_um" type="number" min="0" step="0.1" value="2160"></td>
+            </tr>
+            <tr>
+                <td>Binder density</td>
+                <td>g/mL</td>
+                <td><input id="rho_binder" type="number" min="0" step="0.01" value="1.74"></td>
+            </tr>
+            <tr>
+                <td>Binder:sample volumetric ratio</td>
+                <td></td>
+                <td><input id="binder_vol_ratio" type="number" min="0" step="0.1" value="4"></td>
+            </tr>
+            <tr>
+                <td>Binder volume</td>
+		<td>mm<sup>3</sup></td>
+                <td><output id="vol_binder" for="binder_vol_ratio vol_sample" ></td>
+            </tr>
+            <tr>
+                <td>Binder thickness</td>
+		<td>mm</sup></td>
+                <td><output id="binder_thick_mm" for="vol_binder pellet_area" ></td>
+            </tr>
+            <tr>
+                <td>Filler label</td>
+                <td></td>
+                <td><input id="label_filler" type="text" value="hBN"></td>
+            </tr>
+            <tr>
+                <td>Filler x-ray absorption length</td>
+                <td>micron</td>
+                <td><input id="filler_absorption_length_um" type="number" min="0" step="0.1" value="3350"></td>
+            </tr>
+            <tr>
+                <td>Filler density</td>
+                <td>g/mL</td>
+                <td><input id="rho_filler" type="number" min="0" step="0.01" value="2.29"></td>
+            </tr>
+            <tr>
+                <td>Filler:sample volumetric ratio</td>
+                <td></td>
+                <td><input id="filler_vol_ratio" type="number" min="0" step="0.1" value="13"></td>
+            </tr>
+            <tr>
+                <td>Filler volume</td>
+		<td>mm<sup>3</sup></td>
+                <td><output id="vol_filler" for="filler_vol_ratio vol_sample" ></td>
+            </tr>
+            <tr>
+                <td>Filler thickness</td>
+		<td>mm</sup></td>
+                <td><output id="filler_thick_mm" for="vol_filler pellet_area" ></td>
+            </tr>
+            <tr>
+                <td>Total thickness</td>
+		<td>mm</sup></td>
+                <td><output id="total_thick_mm" for="sample_thick_mm binder_thick_mm filler_thick_mm" ></td>
+            </tr>
+        </table>
+        <button id="download_csv_button">Download CSV</button>
+    </body>
+</html>
