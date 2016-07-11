@@ -31,6 +31,17 @@ function calculate() {
     var total_thick_mm = sample_thick_mm + binder_thick_mm + filler_thick_mm;
     document.getElementById("total_thick_mm").value = total_thick_mm;
 
+    var binder_absorption_length_um = parseFloat(document.getElementById("binder_absorption_length_um").value);
+    var binder_absorption_lengths = binder_thick_mm / (binder_absorption_length_um * um_to_mm);
+    document.getElementById("binder_absorption_lengths").value = binder_absorption_lengths;
+
+    var filler_absorption_length_um = parseFloat(document.getElementById("filler_absorption_length_um").value);
+    var filler_absorption_lengths = filler_thick_mm / (filler_absorption_length_um * um_to_mm);
+    document.getElementById("filler_absorption_lengths").value = filler_absorption_lengths;
+
+    var total_absorption_lengths = sample_absorption_lengths + binder_absorption_lengths + filler_absorption_lengths;
+    document.getElementById("total_absorption_lengths").value = total_absorption_lengths;
+
     var sample_density = parseFloat(document.getElementById("sample_density").value);
     var sample_mass_mg = sample_volume * sample_density;
     document.getElementById("sample_mass_mg").value = sample_mass_mg;
@@ -43,6 +54,8 @@ function calculate() {
     var filler_mass_mg = filler_volume * filler_density;
     document.getElementById("filler_mass_mg").value = filler_mass_mg;
 
+    var total_mass_mg = sample_mass_mg + binder_mass_mg + filler_mass_mg;
+    document.getElementById("total_mass_mg").value = total_mass_mg;
 }
 
 function table_to_csv(table) {

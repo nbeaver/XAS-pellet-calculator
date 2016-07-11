@@ -119,6 +119,21 @@
                 <td><output id="total_thick_mm" for="sample_thick_mm binder_thick_mm filler_thick_mm" ></td>
             </tr>
             <tr>
+                <td>Binder absorption lengths</td>
+		<td>mm</sup></td>
+                <td><output id="binder_absorption_lengths" for="binder_thick_mm binder_absorption_length_um" ></td>
+            </tr>
+            <tr>
+                <td>Filler absorption lengths</td>
+		<td>mm</sup></td>
+                <td><output id="filler_absorption_lengths" for="filler_thick_mm filler_absorption_length_um" ></td>
+            </tr>
+            <tr>
+                <td>Total absorption lengths</td>
+		<td>mm</sup></td>
+                <td><output id="total_absorption_lengths" for="sample_absorption_lengths binder_absorption_lengths filler_absorption_lengths" ></td>
+            </tr>
+            <tr>
                 <td>Sample mass</td>
 		<td>mg</sup></td>
                 <td><output id="sample_mass_mg" for="sample_density sample_volume" ></td>
@@ -132,6 +147,11 @@
                 <td>Filler mass</td>
 		<td>mg</sup></td>
                 <td><output id="filler_mass_mg" for="filler_density filler_volume" ></td>
+            </tr>
+            <tr>
+                <td>Total mass</td>
+		<td>mg</sup></td>
+                <td><output id="total_mass_mg" for="sample_mass_mg binder_mass_mg filler_mass_mg" ></td>
             </tr>
         </table>
         <button id="download_csv_button">Download CSV</button>
