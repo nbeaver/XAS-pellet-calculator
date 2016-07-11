@@ -1,4 +1,4 @@
-function calc_pellet_area() {
+function calculate() {
     var pellet_diameter_mm = parseFloat(document.getElementById("pellet_diameter_mm").value);
     var pellet_radius_mm = pellet_diameter_mm/2;
     var pellet_area = Math.PI * pellet_radius_mm * pellet_radius_mm;
@@ -44,37 +44,26 @@ function download_csv() {
     document.body.removeChild(tempAnchor);
 }
 
-function add_input_listeners(outputId, calcFunc) {
-    console.log(outputId);
-    calcFunc();
-    var inputIds = document.getElementById(outputId).htmlFor;
-    console.log((new Error).lineNumber);
-    if (inputIds.length > 0) {
-        var i;
-        for (i=0; i < inputIds.length; i++) {
-            console.log(inputIds[i]);
-            console.log((new Error).lineNumber);
-            document.getElementById(inputIds[i]).addEventListener('input', calcFunc);
-        }
-    }
-    else {
-        console.log("Error: length of inputIds is 0");
-    }
-}
-
 window.onload = function() {
-    //calculate_current();
-    //
-    //var input_ids = new Array("mg_electrode", "mg_current_collector", "percent_active_material", "percent_carbon", "mg_carbon", "capacity_active_material", "capacity_carbon", "hours_charge_time", "electrode_area");
-    //var i;
-    //for (i=0; i<input_ids.length; i++) {
-    //    document.getElementById(input_ids[i]).addEventListener('input', calculate_current);
-    //}
+    calculate();
 
+    var input_ids = new Array();
+    input_ids.push("pellet_diameter_mm");
+    input_ids.push("sample_absorption_length_um");
+    input_ids.push("desired_absorption_lengths");
+    input_ids.push("sample_density");
+    input_ids.push("binder_absorption_length_um");
+    input_ids.push("binder_density");
+    input_ids.push("binder_volume_ratio");
+    input_ids.push("filler_absorption_length_um");
+    input_ids.push("filler_density");
+    input_ids.push("filler_volume_ratio");
 
-    //calc_pellet_area();
-    //document.getElementById("pellet_diameter_mm").addEventListener('input', calc_pellet_area);
-    add_input_listeners("pellet_diameter_mm", calc_pellet_area)
+    var i;
+    for (i=0; i<input_ids.length; i++) {
+        document.getElementById(input_ids[i]).addEventListener('input', calculate);
+    }
 
     document.getElementById("download_csv_button").addEventListener('click', download_csv);
+
 }
