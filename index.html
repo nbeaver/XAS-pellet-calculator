@@ -54,6 +54,11 @@
                 <td><output id="sample_thick_mm" for="sample_volume pellet_area" ></td>
             </tr>
             <tr>
+                <td>Sample mass</td>
+		<td>mg</sup></td>
+                <td><output id="sample_mass_mg" for="sample_density sample_volume" ></td>
+            </tr>
+            <tr>
                 <td>Binder label</td>
                 <td></td>
                 <td><input id="label_binder" type="text" value="PVDF (C2H2F2)n at 13.1 keV"></td>
@@ -82,6 +87,16 @@
                 <td>Binder thickness</td>
 		<td>mm</sup></td>
                 <td><output id="binder_thick_mm" for="binder_volume pellet_area" ></td>
+            </tr>
+            <tr>
+                <td>Binder absorption lengths</td>
+		<td>mm</sup></td>
+                <td><output id="binder_absorption_lengths" for="binder_thick_mm binder_absorption_length_um" ></td>
+            </tr>
+            <tr>
+                <td>Binder mass</td>
+		<td>mg</sup></td>
+                <td><output id="binder_mass_mg" for="binder_density binder_volume" ></td>
             </tr>
             <tr>
                 <td>Filler label</td>
@@ -114,39 +129,24 @@
                 <td><output id="filler_thick_mm" for="filler_volume pellet_area" ></td>
             </tr>
             <tr>
-                <td>Total thickness</td>
-		<td>mm</sup></td>
-                <td><output id="total_thick_mm" for="sample_thick_mm binder_thick_mm filler_thick_mm" ></td>
-            </tr>
-            <tr>
-                <td>Binder absorption lengths</td>
-		<td>mm</sup></td>
-                <td><output id="binder_absorption_lengths" for="binder_thick_mm binder_absorption_length_um" ></td>
-            </tr>
-            <tr>
                 <td>Filler absorption lengths</td>
 		<td>mm</sup></td>
                 <td><output id="filler_absorption_lengths" for="filler_thick_mm filler_absorption_length_um" ></td>
             </tr>
             <tr>
-                <td>Total absorption lengths</td>
-		<td>mm</sup></td>
-                <td><output id="total_absorption_lengths" for="sample_absorption_lengths binder_absorption_lengths filler_absorption_lengths" ></td>
-            </tr>
-            <tr>
-                <td>Sample mass</td>
-		<td>mg</sup></td>
-                <td><output id="sample_mass_mg" for="sample_density sample_volume" ></td>
-            </tr>
-            <tr>
-                <td>Binder mass</td>
-		<td>mg</sup></td>
-                <td><output id="binder_mass_mg" for="binder_density binder_volume" ></td>
-            </tr>
-            <tr>
                 <td>Filler mass</td>
 		<td>mg</sup></td>
                 <td><output id="filler_mass_mg" for="filler_density filler_volume" ></td>
+            </tr>
+            <tr>
+                <td>Total thickness</td>
+		<td>mm</sup></td>
+                <td><output id="total_thick_mm" for="sample_thick_mm binder_thick_mm filler_thick_mm" ></td>
+            </tr>
+            <tr>
+                <td>Total absorption lengths</td>
+		<td>mm</sup></td>
+                <td><output id="total_absorption_lengths" for="sample_absorption_lengths binder_absorption_lengths filler_absorption_lengths" ></td>
             </tr>
             <tr>
                 <td>Total mass</td>
