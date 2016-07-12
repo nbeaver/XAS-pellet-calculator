@@ -48,6 +48,12 @@ function calculate() {
     var filler_mass_mg = filler_volume * filler_density;
     document.getElementById("filler_mass_mg").value = filler_mass_mg;
 
+    var dry_binder_ratio = (sample_volume + filler_volume)/(binder_volume);
+    document.getElementById("dry_binder_ratio").value = dry_binder_ratio;
+
+    var total_volume = sample_volume + binder_volume + filler_volume;
+    document.getElementById("total_volume").value = total_volume;
+
     var total_thick_mm = sample_thick_mm + binder_thick_mm + filler_thick_mm;
     document.getElementById("total_thick_mm").value = total_thick_mm;
 
