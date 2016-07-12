@@ -7,6 +7,7 @@ function calculate() {
 
     var sample_absorption_length_um = parseFloat(document.getElementById("sample_absorption_length_um").value);
     var sample_absorption_lengths = parseFloat(document.getElementById("sample_absorption_lengths").value);
+
     const um_to_mm = 1.0/1000.0;
     var sample_volume = sample_absorption_lengths * (sample_absorption_length_um*um_to_mm) * pellet_area;
     document.getElementById("sample_volume").value = sample_volume;
@@ -33,6 +34,9 @@ function calculate() {
     var binder_mass_mg = binder_volume * binder_density;
     document.getElementById("binder_mass_mg").value = binder_mass_mg;
 
+    var binder_mass_ratio = binder_mass_mg / sample_mass_mg;
+    document.getElementById("binder_mass_ratio").value = binder_mass_ratio;
+
     var filler_volume_ratio = parseFloat(document.getElementById("filler_volume_ratio").value);
     var filler_volume = filler_volume_ratio * sample_volume;
     document.getElementById("filler_volume").value = filler_volume;
@@ -47,6 +51,9 @@ function calculate() {
     var filler_density = parseFloat(document.getElementById("filler_density").value);
     var filler_mass_mg = filler_volume * filler_density;
     document.getElementById("filler_mass_mg").value = filler_mass_mg;
+
+    var filler_mass_ratio = filler_mass_mg / sample_mass_mg;
+    document.getElementById("filler_mass_ratio").value = filler_mass_ratio;
 
     var dry_binder_ratio = (sample_volume + filler_volume)/(binder_volume);
     document.getElementById("dry_binder_ratio").value = dry_binder_ratio;
