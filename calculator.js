@@ -98,6 +98,15 @@ function table_to_csv(table) {
     return table_string;
 }
 
+function toggleReadOnly(inputId) {
+    var field = document.getElementById(inputId);
+    if (field.readOnly === true) {
+        field.readOnly = false;
+    } else {
+        field.readOnly = true;
+    }
+}
+
 function download_csv() {
     var table = document.getElementById("calculator_table");
     var tempAnchor = window.document.createElement('a');
@@ -132,4 +141,8 @@ window.onload = function() {
 
     document.getElementById("download_csv_button").addEventListener('click', download_csv);
 
+    document.getElementById("binder_density_editable").addEventListener('click', function(){toggleReadOnly("binder_density")});
+    document.getElementById("binder_volume_ratio_editable").addEventListener('click', function(){toggleReadOnly("binder_volume_ratio")});
+    document.getElementById("filler_density_editable").addEventListener('click', function(){toggleReadOnly("filler_density")});
+    document.getElementById("filler_volume_ratio_editable").addEventListener('click', function(){toggleReadOnly("filler_volume_ratio")});
 }
