@@ -97,16 +97,16 @@ function table_to_csv(table) {
     }
     var table_string = "";
     var row_delimiter = "\n";
-    var column_delimiter = ",";
+    var cell_delimiter = ",";
     // http://stackoverflow.com/a/3065389/1608986
     for (var i=0, row; row=table.rows[i]; i++) {
-        for (var j=0, col; col=row.cells[j]; j++) {
+        for (var j=0, cell; cell=row.cells[j]; j++) {
             if (j < row.cells.length - 1) {
-                table_string += td_string(col) + column_delimiter;
+                table_string += td_string(cell) + cell_delimiter;
             }
             else {
                 // Last item in row, so no delimiter.
-                table_string += td_string(col);
+                table_string += td_string(cell);
             }
         }
         if (i < table.rows.length - 1) {
