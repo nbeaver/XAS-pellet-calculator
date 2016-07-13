@@ -72,6 +72,29 @@ function calculate() {
 }
 
 function table_to_csv(table) {
+    function input_string(input) {
+        if (input.type === "text") {
+            return input.value;
+        } else if (input.type === "number") {
+            return input.value;
+        } else if (input.type === "checkbox") {
+            return input.checked;
+        } else {
+            throw new TypeError("Cannot convert to CSV field:"+input.type);
+        }
+    }
+    function td_string(td) {
+        if (td.textContent == "") {
+            if (td.children.length > 0) {
+                // TODO: handle more than one child
+                return input_string(td.children[0]);
+            } else {
+                return td.textContent;
+            }
+        } else {
+            return td.textContent;
+        }
+    }
     var table_string = "";
     var row_delimiter = "\n";
     var column_delimiter = ",";
@@ -79,16 +102,11 @@ function table_to_csv(table) {
     for (var i=0, row; row=table.rows[i]; i++) {
         for (var j=0, col; col=row.cells[j]; j++) {
             if (j < row.cells.length - 1) {
-                table_string += col.textContent + column_delimiter;
+                table_string += td_string(col) + column_delimiter;
             }
             else {
-                // Last item in row.
-                if (col.childElementCount > 0) {
-                    table_string += col.children[0].value;
-                }
-                else {
-                    table_string += col.textContent;
-                }
+                // Last item in row, so no delimiter.
+                table_string += td_string(col);
             }
         }
         if (i < table.rows.length - 1) {

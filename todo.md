@@ -1,2 +1,2 @@
 - [ ] Figure out how to get 'for' attribute before DOM has loaded.
-- [ ] Figure out why the `readonly` fields don't show up in CSV file.
+- [x] Figure out why the `readonly` fields don't show up in CSV file.
