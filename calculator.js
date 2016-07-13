@@ -84,7 +84,7 @@ function table_to_csv(table) {
         }
     }
     function td_string(td) {
-        if (td.textContent == "") {
+        if (td.textContent === "") {
             if (td.children.length > 0) {
                 // TODO: handle more than one child
                 return input_string(td.children[0]);
